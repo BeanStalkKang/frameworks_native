@@ -664,6 +664,14 @@ status_t SurfaceComposerClient::getDisplayInfo(
     return getDisplayInfo(getBuiltInDisplay(displayId), info);
 }
 
+#if defined(TOROPLUS_RADIO)
+status_t SurfaceComposerClient::getDisplayInfo(
+        int32_t displayId, DisplayInfo* info)
+{
+    return getDisplayInfo(getBuiltInDisplay(displayId), info);
+}
+#endif
+
 #if defined(ICS_CAMERA_BLOB) || defined(MR0_CAMERA_BLOB)
 ssize_t SurfaceComposerClient::getDisplayWidth(int32_t displayId) {
     DisplayInfo info;
